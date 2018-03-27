@@ -1,20 +1,20 @@
-## Part 1 ����� ##
-**1.������Ϸ����GameObjects������Դ��Assets������������ϵ��**
+## Part 1 简答题 ##
+**1.解释游戏对象（GameObjects）和资源（Assets）的区别与联系。**
 
-������Ϸ����ֱ�ӳ����ڳ����У���һ������ң����ˣ����������ֵ����⸸�ࡣ��Щ���౾��û��ʵ�壬�����ǵ������������Ϸ�л���ֵĶ�����Դ�ļ���ͨ���ж��󡢲��ʡ�������������Ԥ�衢��ͼ���ű�������������Щ�ļ����¿��Լ������֡�
+区别：游戏对象直接出现在场景中，，一般有玩家，敌人，环境和音乐等虚拟父类。这些父类本身没有实体，但他们的子类包含了游戏中会出现的对象。资源文件夹通常有对象、材质、场景、声音、预设、贴图、脚本、动作，在这些文件夹下可以继续划分。
 
-��ϵ����������Դ���ϵľ�����֣���Դ���Ա�һ����������ʹ�ã���Щ��Դ��Ϊģ�壬��ʵ��������Ϸ�о���Ķ���
+联系：对象是资源整合的具体表现；资源可以被一个或多个对象使用，有些资源作为模板，可实例化成游戏中具体的对象。
 
-**2.���ؼ�����Ϸ�������ֱ��ܽ���Դ��������֯�Ľṹ��ָ��Դ��Ŀ¼��֯�ṹ����Ϸ�������Ĳ�νṹ��**
+**2.下载几个游戏案例，分别总结资源、对象组织的结构（指资源的目录组织结构与游戏对象树的层次结构）**
 
-��Դ��Asset���µĽṹ��
-![��Դ�ṹ](https://img-blog.csdn.net/20180326222359393?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1BlYW51dERvMXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+资源（Asset）下的结构：
+![资源结构](https://img-blog.csdn.net/20180326222359393?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1BlYW51dERvMXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
-���ͼ��ʾ�����壬ͼƬ���ű��������ľ���AssetĿ¼�¡�
+如截图所示，字体，图片，脚本，场景的均在Asset目录下。
 
-**3.��дһ�����룬ʹ�� debug �������֤ MonoBehaviour ������Ϊ���¼�����������**
+**3.编写一个代码，使用 debug 语句来验证 MonoBehaviour 基本行为或事件触发的条件**
 
-���룺
+代码：
 
 ```
 
@@ -82,57 +82,57 @@ public class test : MonoBehaviour {
 ```
 
 
-���н����
-![�����ͼ1](https://img-blog.csdn.net/20180326222656282?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1BlYW51dERvMXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+运行结果：
+![结果截图1](https://img-blog.csdn.net/20180326222656282?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1BlYW51dERvMXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
-![�����ͼ2](https://img-blog.csdn.net/20180326222743580?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1BlYW51dERvMXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
-**4.���ҽű��ֲᣬ�˽� GameObject��Transform��Component ����**
+![结果截图2](https://img-blog.csdn.net/20180326222743580?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1BlYW51dERvMXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+**4.查找脚本手册，了解 GameObject，Transform，Component 对象**
 
-**Description��**
+**Description：**
 
-GameObject ��Ϸ���壺�̳���Object�࣬��Unity����������ʵ��Ļ���
+GameObject 游戏物体：继承自Object类，是Unity场景里所有实体的基类
 
-Transform �任���̳���Component��IEnumberable�࣬����һ�������λ�á���ת�����š������е�ÿһ�����嶼��һ��Transform���ԡ����ڴ��沢�ٿ������λ�á���ת�����š�ÿһ��Transform������һ��������������ֲ��Ӧ��λ�á���ת�����š�������Hierarchy���鿴��ι�ϵ������Ҳ֧��ʹ�ü���������������ʹ��ѭ�����������塣
+Transform 变换：继承自Component，IEnumberable类，包括一个物体的位置、旋转和缩放。场景中的每一个物体都有一个Transform属性。用于储存并操控物体的位置、旋转和缩放。每一个Transform可以有一个父级，允许你分层次应用位置、旋转和缩放。可以在Hierarchy面板查看层次关系。他们也支持使用计数器，因此你可以使用循环遍历子物体。
 
-Component ������̳���Object�࣬��һ�к���Ϸ�����й���Ļ��ࡣ
-![��ĿͼƬ](https://img-blog.csdn.net/20180326222935721?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1BlYW51dERvMXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+Component 组件：继承自Object类，是一切和游戏物体有关类的基类。
+![题目图片](https://img-blog.csdn.net/20180326222935721?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1BlYW51dERvMXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
-**����table��������ԣ�**
+**描述table对象的属性：**
 
-Table��GameObject���һ��ʵ������һ��ѡ����� activeSelf ���ԡ�
+Table是GameObject类的一个实例，第一个选择框是 activeSelf 属性。
 
-Tag��������Ϸ����ı�ǩ�������ڲ�����Ϸ������Ч�ʽϸߣ���Ӧtag����,��һ��ѡ����ӦCompareTag()������Layer������ָ��Ϸ�������ڵĲ㣬Unity��Ĭ������8��Layer��һ����ķ�Χ����[0...32]֮�䣬��Ӧlayer������
+Tag属性是游戏物体的标签，可用于查找游戏物体且效率较高，对应tag变量,第一个选择框对应CompareTag()方法。Layer属性是指游戏物体所在的层，Unity中默认已有8种Layer，一个层的范围是在[0...32]之间，对应layer变量。
 
-**table�����Transform���ԣ�**
+**table对象的Transform属性：**
 
-��Transform���һ��ʵ����
+是Transform类的一个实例。
 
-postion:������ռ������е����λ�ã���Ӧposition�����������xyz��ӦTransformPoint()������
+postion:在世界空间坐标中的相对位置，对应position变量，后面的xyz对应TransformPoint()方法。
 
-rotation:����任����ת�Ƕȣ���ΪQuaternion���棬��Ӧrotation������xyz��ӦRotate��������������������
+rotation:物体变换的旋转角度，作为Quaternion储存，对应rotation变量，xyz对应Rotate（）方法的三个参数。
 
-scale:����ڸ�����������ţ���ӦlocalScale������
+scale:相对于父级物体的缩放，对应localScale变量。
 
-**table�Ĳ�����**
+**table的部件：**
 
-Mesh Filter:�������������Ϊ������Mesh�Ľӿڣ����봰�ڵ������ǽ���ʵ������Mesh
+Mesh Filter:网格过滤器，作为物体与Mesh的接口，输入窗口的作用是接入实例化的Mesh
 
 Mesh
-Renderer��������Ⱦ������Ⱦ���񡣵�һ�����ڶ�ӦcastShadows()��������ѡ���ӦreceiveShadows����������֮��Ĵ��ڶ�ӦmotionVectors()������Light
-Probes��LightProbes�Ķ���Anchor Override�Ҳ��������Ӧ��api��
+Renderer：网格渲染器，渲染网格。第一个窗口对应castShadows()方法，勾选框对应receiveShadows（）方法，之后的窗口对应motionVectors()方法。Light
+Probes是LightProbes的对象。Anchor Override找不到具体对应的api。
 
 Box
-Collider:����ײ������һ����ѡ���ӦisTrigger������֮���ѡ����Ӧmaterial������֮��ֱ��ӦBoxCollider.center��BoxCollider.size
+Collider:盒碰撞器。第一个勾选框对应isTrigger变量，之后的选择框对应material变量，之后分别对应BoxCollider.center和BoxCollider.size
 
-**UMLͼ��**
-![UMLͼ](https://img-blog.csdn.net/20180326223008165?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1BlYW51dERvMXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
-**5. �������ѧϰ���ϣ���д�򵥴�����֤���¼�����ʵ�֣�**
+**UML图：**
+![UML图](https://img-blog.csdn.net/20180326223008165?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1BlYW51dERvMXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+**5. 整理相关学习资料，编写简单代码验证以下技术的实现：**
 
-**���Ҷ���**
+**查找对象**
 
-ͨ������GameObject.Find(string name)����ʵ�֣�
+通过调用GameObject.Find(string name)方法实现：
 
-���룺
+代码：
 
 ```
 using UnityEngine;
@@ -154,11 +154,11 @@ public class Example : MonoBehaviour {
 ```
 
 
-**�����Ӷ���**
+**添加子对象**
 
-ͨ������GameObject.CreatePrimitive(PrimitiveType \_ttype)����ʵ��
+通过调用GameObject.CreatePrimitive(PrimitiveType \_ttype)方法实现
 
-���룺
+代码：
 
 ```
 using UnityEngine;
@@ -177,9 +177,9 @@ public class ExampleClass : MonoBehaviour {
 ```
 
 
-**����������**
+**遍历对象树**
 
-���룺
+代码：
 
 ```
 
@@ -191,7 +191,7 @@ void Traversal(GameObject obj){
 
 		Transform p=obj.transform.GetChild(i);
 
-		//��p���б���Ҫ���еĶ���
+		//对p进行遍历要进行的动作
 
 		if(p.childCount \> 0) Traversal(p);
 
@@ -203,9 +203,9 @@ void Traversal(GameObject obj){
 ```
 
 
-**��������Ӷ���**
+**清除所有子对象**
 
-���룺
+代码：
 
 ```
 void DESTraversal(GameObject obj){
@@ -228,23 +228,23 @@ void DESTraversal(GameObject obj){
 
 ```
 
-**6.��ԴԤ�裨Prefabs���� �����¡ (clone)**
+**6.资源预设（Prefabs）与 对象克隆 (clone)**
 
-**���ʽ��ͣ�**
+**名词解释：**
 
-Prefabs��Ԥ�裩��һ����Դ���ͣ��ɱ��ظ�ʹ�õ���Ϸ���������Ա������������У��ֻ����ܹ���һ�������б�������롣
+Prefabs（预设）是一种资源类型，可被重复使用的游戏对象。它可以被置入多个场景中，又或者能够在一个场景中被多次置入。
 
-Clone����¡��������һ��������������ͬ�ֲ���ص���ʵ����
+Clone（克隆）即创建一个该物体属性相同又不相关的新实例。
 
-**Ԥ��ĺô���**
+**预设的好处：**
 
-Ԥ����Կ�����Ϸ��Դ��ģ�塣������Ϸ�����д���һ��Ԥ��ʱ��������һ������ʵ����Ԥ�����໥�����ģ�����Ԥ����и���ʱ����Щ���Ľ�����������֮����������ʵ����
+预设可以看做游戏资源的模板。当在游戏场景中创建一个预设时即创建了一个他的实例。预设是相互关联的，当对预设进行更改时，这些更改将会作用于与之相连的所有实例。
 
-**Ԥ�����¡�Ĺ�ϵ��**
+**预设与克隆的关系：**
 
-������Ϊ���ƣ�����¡���󲻻����ű���¡����ĸı���ı䡣
+二者行为相似，但克隆对象不会随着被克隆对象的改变而改变。
 
-**��tableʵ������**
+**将table实例化：**
 
 ```
 
@@ -264,11 +264,11 @@ public class NewBehaviourScript : MonoBehaviour {
 ```
 
 
-**7. ���Խ������ģʽ��Composite Pattern / һ�����ģʽ����ʹ��BroadcastMessage() �������Ӷ�������Ϣ**
+**7. 尝试解释组合模式（Composite Pattern / 一种设计模式）。使用BroadcastMessage() 方法向子对象发送消息**
 
-���ģʽͨ�����νṹ�����ֲ���������Ĳ�Ρ���ΪҪ��򵥶����븴�Ӷ���Ҫ��ͬ���Ľӿڣ������ܶԶ������һ�´�����
+组合模式通过树形结构来表现部分与整体的层次。因为要求简单对象与复杂对象都要有同样的接口，所以能对对象进行一致处理。
 
-**������󷽷���**
+**父类对象方法：**
 
 ```
 void Start () {
@@ -280,7 +280,7 @@ void Start () {
 
 
 
-**������󷽷���**
+**子类对象方法：**
 
 ```
 
@@ -290,7 +290,7 @@ Void HelloSon() {
 
 }
 ```
-## Part2 ���ʵ���������� ##
+## Part2 编程实践：井字棋 ##
 
-���ҵ���һƪ����
-[������ʵ��](https://blog.csdn.net/PeanutDo1t/article/details/79706261%20TicTacToe%E5%AE%9E%E6%88%98)
+见我的下一篇博客
+[井字棋实现](https://blog.csdn.net/peanutdo1t/article/details/79706261)
